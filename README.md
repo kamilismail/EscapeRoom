@@ -1,0 +1,2 @@
+# GKProjekt
+Grafika Komputerowa Projekt
