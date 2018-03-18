@@ -1,8 +1,8 @@
 # GKProjekt
 Projekt z Grafiki Komputerowej
 
-Autorzy:
-Kamil Ismail
+Autorzy: <br>
+Kamil Ismail <br>
 Jakub Pisula
 
 Tematem projektu jest pierwszoosobowa gra logiczna „Escape Room”. 
