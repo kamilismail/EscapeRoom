@@ -1,0 +1,3 @@
+16.03.2018 - Utworzony projekt wraz z menu startowym
+
+18.03.2018 - Rozpoczecie prac nad pierwszym pomieszczeniem. Zbudowano pomieszczenie oraz rozlozono czesc modeli.
