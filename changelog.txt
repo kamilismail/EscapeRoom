@@ -1,3 +1,9 @@
 16.03.2018 - Utworzony projekt wraz z menu startowym
 
 18.03.2018 - Rozpoczecie prac nad pierwszym pomieszczeniem. Zbudowano pomieszczenie oraz rozlozono czesc modeli.
+
+20.03.2018 - Stworzenie kolejnych modeli w Blenderze np. drzwi. Dodanie obiektu gracza oraz oskryptowanie ruchu kamery. Dalsze prace nad pomieszczeniem.
+
+21.03.2018 - Poprawienie niektórych modeli.
+
+22.03.2018 - Dodano manu pauzy oraz poprawiono działanie kamery.
