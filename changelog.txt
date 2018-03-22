@@ -5,3 +5,5 @@
 20.03.2018 - Stworzenie kolejnych modeli w Blenderze np. drzwi. Dodanie obiektu gracza oraz oskryptowanie ruchu kamery. Dalsze prace nad pomieszczeniem.
 
 21.03.2018 - Poprawienie niektórych modeli. Dodano menu pauzy oraz poprawiono działanie kamery. 
+
+22.03.2018 - Dodany widok z okna - utworzono teren oraz drzewa.
