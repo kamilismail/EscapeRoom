@@ -8,8 +8,7 @@ public class PauseMenu : MonoBehaviour
 
 	public bool GamePaused = false;
 	public GameObject pauseMenu;
-	public string menuSceneName;
-	// Update is called once per frame
+
 	void Update ()
 	{
 		if (Input.GetKeyDown (KeyCode.Escape)) {
@@ -34,9 +33,8 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	public void LoadMainMenu() {
-		menuSceneName = "Menu";
 		Time.timeScale = 1;
-		SceneManager.LoadScene (menuSceneName);
+		SceneManager.LoadScene (0); //load main menu scene
 	}
 
 }

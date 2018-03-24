@@ -7,3 +7,5 @@
 21.03.2018 - Poprawienie niektórych modeli. Dodano menu pauzy oraz poprawiono działanie kamery. 
 
 22.03.2018 - Dodany widok z okna - utworzono teren oraz drzewa.
+
+24.03.2018 - Dodano możliwość otwarcia drzwi poprzez wprowadzenie odpowiedniego kodu na wyświetlonej klawiaturze. Przejście przez drzwi prowadzi do następnej sceny - pomieszczenia.
