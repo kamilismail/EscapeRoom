@@ -9,3 +9,5 @@
 22.03.2018 - Dodany widok z okna - utworzono teren oraz drzewa.
 
 24.03.2018 - Dodano możliwość otwarcia drzwi poprzez wprowadzenie odpowiedniego kodu na wyświetlonej klawiaturze. Przejście przez drzwi prowadzi do następnej sceny - pomieszczenia.
+
+25.03.2018 - Rozpoczeto prace nad zagadkami - poczatkowe oskryptowanie interakcji z obiektem (zagadką). Możliwe zebranie jej powodujące ukrycie na scenie.

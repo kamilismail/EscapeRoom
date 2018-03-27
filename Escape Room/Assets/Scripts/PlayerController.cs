@@ -6,11 +6,17 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	public float speed = 10;
+	public List<Texture> clues;
+	public bool colliderTriggered;
+	public bool collected;
+	public float screenWidth;
+	public float screenHeight;
+	Collider c;
 
 	void Start () {
-		//Cursor.lockState = CursorLockMode.Locked;
+		//Cursor.locktate = CursorLockMode.Locked;
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		float ver = Input.GetAxis ("Vertical") * speed;
@@ -20,5 +26,32 @@ public class PlayerController : MonoBehaviour {
 		hor *= Time.deltaTime;
 
 		transform.Translate (hor, 0, ver);
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.CompareTag ("Clue")) {
+			//clues.Add ();
+			c = other;
+			colliderTriggered = true;
+
+		}
+	}
+
+	void OnTriggerExit(Collider other) {
+		if (other.gameObject.CompareTag ("Clue"))
+			colliderTriggered = false;
+	}
+
+	void OnGUI() {
+		screenWidth = Screen.width / 2;
+		screenHeight = Screen.height / 2;
+		if (!collected && colliderTriggered) {
+			GUI.Box (new Rect (screenWidth - 125, screenHeight - 12, 250, 25), "Press 'F' to get clue");
+
+			if (Input.GetKeyDown (KeyCode.F)) {
+				c.gameObject.SetActive (false);
+				colliderTriggered = false;
+			}
+		}
 	}
 }
