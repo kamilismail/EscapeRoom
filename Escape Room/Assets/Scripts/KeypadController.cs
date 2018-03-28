@@ -9,6 +9,7 @@ public class KeypadController : MonoBehaviour {
 	public bool colliderTriggered;
 	public bool screenOn;
 	public bool openDoor;
+	public bool correctPassword;
 	public bool enterTriggered;
 	public Transform doorRotate;
 	public float screenWidth;
@@ -22,6 +23,7 @@ public class KeypadController : MonoBehaviour {
 		colliderTriggered = false;
 		screenOn = false;
 		enterTriggered = false;
+		correctPassword = false;
 		input = "";
 	}
 		
@@ -32,6 +34,7 @@ public class KeypadController : MonoBehaviour {
 			screenOn = false;
 			colliderTriggered = false;
 			Time.timeScale = 1;
+			correctPassword = true;
 		} else if (input != password && enterTriggered) {
 			screenOn = false;
 			enterTriggered = false;
@@ -57,6 +60,12 @@ public class KeypadController : MonoBehaviour {
 				colliderTriggered = false;
 			}
 		}
+
+		if (correctPassword) {
+			GUI.Box (new Rect(screenWidth - 75, screenHeight - 12, 150, 25), "Success!");
+			colliderTriggered = false;
+		}
+
 
 		if (screenOn) {
 			Time.timeScale = 0;

@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class MoveTo2Room : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider c) {
-		SceneManager.LoadScene (2); //load 2nd room
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1); //load next room
 	}
 }

@@ -10,8 +10,6 @@ public class CameraController : MonoBehaviour {
 	public float min = -45f;
 	public float max = 50f;
     public Vector2 mousePos;
-    public GameObject camera;
-
 
     Vector2 mouseLook;
 	Vector2 smoothVector;

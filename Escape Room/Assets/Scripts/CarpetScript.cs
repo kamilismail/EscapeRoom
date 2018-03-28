@@ -9,10 +9,11 @@ public class CarpetScript : MonoBehaviour {
 	public bool carpetMoved;
 	public float screenWidth;
 	public float screenHeight;
+	public bool moveDone;
 	public GameObject carpet;
 	public float speed = 2;
 	Vector3 vec;
-	private GameObject clue1;
+	public GameObject clue1;
 
 	void OnTriggerEnter(Collider c) {
 		colliderTriggered = true;
@@ -24,9 +25,12 @@ public class CarpetScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (carpetMoved) {
+		if (carpetMoved && !moveDone) {
 			float step = speed * Time.deltaTime;
 			carpet.transform.position = Vector3.MoveTowards (carpet.transform.position, vec, step);
+			clue1.gameObject.SetActive (true);
+			if (carpet.transform.position.Equals(vec))
+				moveDone = true;
 		}
 	}
 

@@ -6,15 +6,14 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	public float speed = 10;
-	public List<Texture> clues;
+	public List<GameObject> clues;
 	public bool colliderTriggered;
 	public bool collected;
 	public float screenWidth;
 	public float screenHeight;
-	Collider c;
+	private Collider c;
 
 	void Start () {
-		//Cursor.locktate = CursorLockMode.Locked;
 	}
 
 	// Update is called once per frame
@@ -30,7 +29,6 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag ("Clue")) {
-			//clues.Add ();
 			c = other;
 			colliderTriggered = true;
 
@@ -49,6 +47,7 @@ public class PlayerController : MonoBehaviour {
 			GUI.Box (new Rect (screenWidth - 125, screenHeight - 12, 250, 25), "Press 'F' to get clue");
 
 			if (Input.GetKeyDown (KeyCode.F)) {
+				clues.Add (c.gameObject);
 				c.gameObject.SetActive (false);
 				colliderTriggered = false;
 			}
