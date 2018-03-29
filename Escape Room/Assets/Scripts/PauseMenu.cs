@@ -11,8 +11,7 @@ public class PauseMenu : MonoBehaviour
 	public GameObject pauseMenu;
 	private List<GameObject> list;
 	private Renderer rend;
-	private bool right;
-	private bool left;
+	int i;
 
 	void Start ()
 	{
@@ -28,11 +27,6 @@ public class PauseMenu : MonoBehaviour
 				Pause ();
 			}
 		}
-		//zmiana wyswietlanej tekstury obiektu-wskazowki
-		if (Input.GetKeyDown (KeyCode.RightArrow) && showClues)
-			right = true;
-		if (Input.GetKeyDown (KeyCode.LeftArrow) && showClues)
-			left = true;
 	}
 
 	public void Resume ()
@@ -73,22 +67,19 @@ public class PauseMenu : MonoBehaviour
 		float screenWidth = Screen.width / 2;
 		float screenHeight = Screen.height / 2;
 		if (showClues) {
-			
 			if (list.Count > 0) {
-				/*
-				for (int i = 0; i < list.Count;) {
-					rend = list [i].GetComponent<Renderer> ();
-					GUI.DrawTexture (new Rect (screenWidth - 150, screenHeight - 200, 300, 500), rend.material.mainTexture);
-					if (right && i < list.Count) {
+
+				GUI.Box (new Rect (20, 240, 200, 25), "You found "+list.Count+" clues");
+
+				if (GUI.Button (new Rect (20, 10, 100, 100), "Next")) {
+					if (i < list.Count - 1)
 						i++;
-						right = false;
-					}
-					if (left && i > 0) {
-						left = false;
+				}
+				if (GUI.Button (new Rect (20, 120, 100, 100), "Previous")) {
+					if (i > 0)
 						i--;
-					}
-				}*/
-				rend = list [0].GetComponent<Renderer> ();
+				}
+				rend = list [i].GetComponent<Renderer> ();
 				GUI.DrawTexture (new Rect (screenWidth - 150, screenHeight - 200, 300, 500), rend.material.mainTexture);
 			} else {
 				GUI.Box (new Rect (screenWidth - 100, screenHeight - 12, 200, 25), "Find some clues first!");
