@@ -14,8 +14,16 @@ public class CarpetScript : MonoBehaviour {
 	public float speed = 2;
 	Vector3 vec;
 	public GameObject clue1;
+    private Renderer render;
+    public Transform other;
 
-	void OnTriggerEnter(Collider c) {
+
+    void Start()
+    {
+        render = gameObject.GetComponent<Renderer>();
+    }
+
+    void OnTriggerEnter(Collider c) {
 		colliderTriggered = true;
 	}
 
@@ -24,8 +32,9 @@ public class CarpetScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (carpetMoved && !moveDone) {
+	void Update () {   
+
+        if (carpetMoved && !moveDone) {
 			float step = speed * Time.deltaTime;
 			carpet.transform.position = Vector3.MoveTowards (carpet.transform.position, vec, step);
 			clue1.gameObject.SetActive (true);
@@ -37,7 +46,7 @@ public class CarpetScript : MonoBehaviour {
 	void OnGUI() {
 		screenWidth = Screen.width / 2;
 		screenHeight = Screen.height / 2;
-		if (!carpetMoved && colliderTriggered) {
+		if (!carpetMoved && render.isVisible && Vector3.Distance(other.position, transform.position) < 1.5f) {
 			GUI.Box (new Rect (screenWidth - 125, screenHeight - 12, 250, 25), "Press 'F' to move the carpet");
 
 			if (Input.GetKeyDown (KeyCode.F)) {

@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public bool collected;
 	public float screenWidth;
 	public float screenHeight;
-	private Collider c;
+	public Collider c;
 
 	void Start () {
 	}
@@ -25,32 +25,20 @@ public class PlayerController : MonoBehaviour {
 		hor *= Time.deltaTime;
 
 		transform.Translate (hor, 0, ver);
-	}
+    }
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag ("Clue")) {
 			c = other;
 			colliderTriggered = true;
-
-		}
+        }
 	}
 
 	void OnTriggerExit(Collider other) {
 		if (other.gameObject.CompareTag ("Clue"))
 			colliderTriggered = false;
-	}
 
-	void OnGUI() {
-		screenWidth = Screen.width / 2;
-		screenHeight = Screen.height / 2;
-		if (!collected && colliderTriggered) {
-			GUI.Box (new Rect (screenWidth - 125, screenHeight - 12, 250, 25), "Press 'F' to get clue");
+    }
 
-			if (Input.GetKeyDown (KeyCode.F)) {
-				clues.Add (c.gameObject);
-				c.gameObject.SetActive (false);
-				colliderTriggered = false;
-			}
-		}
-	}
+	
 }
