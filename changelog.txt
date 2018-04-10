@@ -15,3 +15,7 @@
 26.03.2018 - Dodanie mozliwosci podejrzenia dotychczas zebranych wskazowek poprzez opcje w menu pauzy. Poprawienie skryptu obslugujacego zbieranie obiektow-zagadek. Dodanie informacji o wpisaniu poprawnego hasla do drzwi.
 
 27.03.2018 - Poprawienie systemu wyswietlania zebranych wskazowek. Mozliwosc przemieszczania sie po kilku wskazowkach.
+
+09.04.2018 - Poprawienie systemu interakcji z obiektami. Dodanie i oskryptowanie modelu biurka.
+
+10.04.2018 - Rozpoczecie prac nad drugim pomieszczeniem - zbudowanie pomieszczenia.
