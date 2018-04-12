@@ -62,10 +62,17 @@ public class InteractiveObject : MonoBehaviour
         player.screenHeight = Screen.height / 2;
         if (render.isVisible && Vector3.Distance(other.position, transform.position) < 1.5f)
         {
-            if(m_State == eInteractiveState.Active && !clue4.activeSelf)
+            if (m_State == eInteractiveState.Active && !clue4.activeSelf)
                 GUI.Box(new Rect(player.screenWidth - 125, player.screenHeight - 12, 250, 25), "Press 'F' to close a drawer");
-            else if(m_State == eInteractiveState.Inactive)
-                GUI.Box(new Rect(player.screenWidth - 125, player.screenHeight - 12, 250, 25), "Press 'F' to open a drawer");
+            else if (m_State == eInteractiveState.Inactive)
+                if (player.hasKey)
+                    GUI.Box(new Rect(player.screenWidth - 125, player.screenHeight - 12, 250, 25), "Press 'F' to open a drawer");
+                else
+                {
+                    GUI.Box(new Rect(player.screenWidth - 125, player.screenHeight - 12, 250, 25), "You need the key to open this drawer!");
+                    return;
+                }
+
 
             if (Input.GetKeyDown(KeyCode.F))
             {

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 	public float screenWidth;
 	public float screenHeight;
 	public Collider c;
+    public bool hasKey;
 
 	void Start () {
 	}
