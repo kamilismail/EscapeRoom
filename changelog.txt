@@ -19,3 +19,5 @@
 09.04.2018 - Poprawienie systemu interakcji z obiektami. Dodanie i oskryptowanie modelu biurka.
 
 10.04.2018 - Rozpoczecie prac nad drugim pomieszczeniem - zbudowanie pomieszczenia.
+
+15.04.2018 - Oskryptowanie zagadek do drugiego pomieszczenia. Dalsze prace nad pomieszczeniem

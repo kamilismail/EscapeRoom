@@ -13,6 +13,8 @@ public class ClueController : MonoBehaviour {
     void Start () {
         render = gameObject.GetComponent<Renderer>();
         isDeactivated = false;
+		player.screenWidth = Screen.width / 2;
+		player.screenHeight = Screen.height / 2;
     }
 	
 	// Update is called once per frame
@@ -23,8 +25,6 @@ public class ClueController : MonoBehaviour {
 
     void OnGUI()
     {
-        player.screenWidth = Screen.width / 2;
-        player.screenHeight = Screen.height / 2;
         if (!player.collected && player.colliderTriggered && render.isVisible && Vector3.Distance(other.position, transform.position) < 1.5f)
         {
             GUI.Box(new Rect(player.screenWidth - 125, player.screenHeight - 12, 250, 25), "Press 'F' to get clue");

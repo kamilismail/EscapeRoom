@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeypadController : MonoBehaviour {
 
-	public string password = "1234";
+	public string password;
 	public string input;
 	public bool colliderTriggered;
 	public bool screenOn;
