@@ -14,6 +14,7 @@ public class CarpetScript : MonoBehaviour {
 	public float speed = 2;
 	Vector3 vec;
 	public GameObject clue1;
+	public GameObject key;
     private Renderer render;
     public Transform other;
 
@@ -38,6 +39,7 @@ public class CarpetScript : MonoBehaviour {
 			float step = speed * Time.deltaTime;
 			carpet.transform.position = Vector3.MoveTowards (carpet.transform.position, vec, step);
 			clue1.gameObject.SetActive (true);
+			key.gameObject.SetActive (true);
 			if (carpet.transform.position.Equals(vec))
 				moveDone = true;
 		}

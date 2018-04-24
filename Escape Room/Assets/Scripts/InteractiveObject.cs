@@ -76,6 +76,7 @@ public class InteractiveObject : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
+				player.hasKey = false;
                 if(!clue4.activeSelf)
                     TriggerInteraction();
                 if (m_State == eInteractiveState.Active)

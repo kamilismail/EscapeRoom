@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	public float screenWidth;
 	public float screenHeight;
 	public Collider c;
+	public Collider keyCollider;
+	public bool keyColliderTriggered;
     public bool hasKey;
 
 	void Start () {
@@ -33,13 +35,30 @@ public class PlayerController : MonoBehaviour {
 			c = other;
 			colliderTriggered = true;
         }
+		if (other.gameObject.CompareTag ("Key")) {
+			keyCollider = other;
+			keyColliderTriggered = true;
+		}
 	}
 
 	void OnTriggerExit(Collider other) {
 		if (other.gameObject.CompareTag ("Clue"))
 			colliderTriggered = false;
+		
+		if (other.gameObject.CompareTag ("Key")) {
+			keyColliderTriggered = false;
+		}
 
     }
+
+	void OnGUI()
+	{
+		if (hasKey)
+		{
+			GUI.Box (new Rect (20, 10, 100, 25), "Got the key");
+
+		}
+	}
 
 	
 }

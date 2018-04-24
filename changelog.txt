@@ -23,3 +23,5 @@
 15.04.2018 - Oskryptowanie zagadek do drugiego pomieszczenia. Dalsze prace nad pomieszczeniem
 
 20.04.2018 - Dodanie modeli przełączników i klawiatury numerycznej. Zamiana z już istniejącymi.
+
+24.04.2018 - Dodano model klucza oraz skrypt pozwalajacy otworzyc szuflade w biurku + poprawki juz istniejacych skryptow.
