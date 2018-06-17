@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Klasa odpowiedzialna za obsługe wskazówek.
+/// </summary>
 public class ClueController : MonoBehaviour {
 
     private Renderer render;
@@ -9,20 +12,27 @@ public class ClueController : MonoBehaviour {
     public Transform other;
     public PlayerController player;
 
-    // Use this for initialization
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
     void Start () {
         render = gameObject.GetComponent<Renderer>();
         isDeactivated = false;
 		player.screenWidth = Screen.width / 2;
 		player.screenHeight = Screen.height / 2;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    /// <summary>
+    /// Metoda odświeżająca się co klatkę - główny obieg.
+    /// </summary>
+    void Update () {
         if(isDeactivated == true)
             player.c.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Metoda obsługująca wyświetlanie treści na ekranie. Wyświetla na ekranie komunikat "Press 'F' to get clue" po podejściu gracza do zagadki.
+    /// </summary>
     void OnGUI()
     {
         if (!player.collected && player.colliderTriggered && render.isVisible && Vector3.Distance(other.position, transform.position) < 1.5f)

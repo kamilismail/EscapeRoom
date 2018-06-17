@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Klasa odpowiedzialna za obługę obiektów interaktywnych - głównie szuflad.
+/// </summary>
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Animation))]
 public class InteractiveObject : MonoBehaviour
 {
 
+    /// <summary>
+    /// Tym wyliczeniowy opisujący stan szuflady (otwarta, zamknięta).
+    /// </summary>
     public enum eInteractiveState
     {
         Active,     //Open
@@ -21,7 +27,9 @@ public class InteractiveObject : MonoBehaviour
     public PlayerController player;
     public GameObject clue4;
 
-
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
     void Start()
     {
         render = gameObject.GetComponent<Renderer>();
@@ -35,6 +43,9 @@ public class InteractiveObject : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Metoda obsługująca działanie z triggerem. Odpowiada ona za uruchamianie animacji otwarcia/zamknięcia szuflady.
+    /// </summary>
     public void TriggerInteraction()
     {
 
@@ -56,6 +67,13 @@ public class InteractiveObject : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Metoda obsługująca wyświetlanie treści na ekranie.
+    /// Wyświetla odpowiednie komunikaty po podejściu gracza do szuflady:
+    /// "Press 'F' to close a drawer",
+    /// "Press 'F' to open a drawer" lub
+    /// "You need the key to open this drawer!".
+    /// </summary>
     void OnGUI()
     {
         player.screenWidth = Screen.width / 2;

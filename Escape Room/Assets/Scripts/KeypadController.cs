@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Klasa odpowiedzialna za obsługe keypada.
+/// </summary>
 public class KeypadController : MonoBehaviour {
 
 	public string password;
@@ -15,10 +18,18 @@ public class KeypadController : MonoBehaviour {
 	public float screenWidth;
 	public float screenHeight;
 
+    /// <summary>
+    /// Metoda wykrywająca wejście innego obiektu w nasz collider.
+    /// </summary>
+    /// <param name="c">Collider obiektu, który wszedł w collider naszego obiektu.</param>
 	void OnTriggerEnter(Collider c) {
 		colliderTriggered = true;
 	}
 
+    /// <summary>
+    /// Metoda wykrywająca wyjście innego obiektu w nasz collider.
+    /// </summary>
+    /// <param name="c">Collider obiektu, który wszedł w collider naszego obiektu.</param>
 	void OnTriggerExit(Collider c) {
 		colliderTriggered = false;
 		screenOn = false;
@@ -26,9 +37,11 @@ public class KeypadController : MonoBehaviour {
 		correctPassword = false;
 		input = "";
 	}
-		
-	// Update is called once per frame
-	void Update () {
+
+    /// <summary>
+    /// Metoda odświeżająca się co klatkę - główny obieg.
+    /// </summary>
+    void Update () {
 		if (input == password && enterTriggered) {
 			openDoor = true;
 			screenOn = false;
@@ -48,6 +61,12 @@ public class KeypadController : MonoBehaviour {
 		}
 	}
 
+    /// <summary>
+    /// Metoda obsługująca wyświetlanie treści na ekranie.
+    /// Wyświetla odpowiednie komunikaty po podejściu gracza do szuflady:
+    /// "Press 'F' to type a code" lub
+    /// "Succes!".
+    /// </summary>
 	void OnGUI() {
 
 		screenWidth = Screen.width / 2;

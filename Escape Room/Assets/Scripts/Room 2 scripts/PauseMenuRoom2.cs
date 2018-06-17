@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Klasa obsługująca menu pauzy w pokoju drugim.
+/// </summary>
 public class PauseMenuRoom2 : MonoBehaviour
 {
 
@@ -12,11 +15,15 @@ public class PauseMenuRoom2 : MonoBehaviour
 	public AudioSource audio;
 	int i;
 
-	void Start ()
-	{
-	}
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
+    void Start () {}
 
-	void Update ()
+    /// <summary>
+    /// Metoda odświeżająca się co klatkę - główny obieg.
+    /// </summary>
+    void Update ()
 	{
 		if (Input.GetKeyDown (KeyCode.Escape) && !GamePaused) {
 			if (GamePaused) {
@@ -27,7 +34,10 @@ public class PauseMenuRoom2 : MonoBehaviour
 		}
 	}
 
-	public void Resume ()
+    /// <summary>
+    /// Metoda, która wznawia grę i chowa menu pauzy.
+    /// </summary>
+    public void Resume ()
 	{
 		pauseMenu.SetActive (false);
 		Time.timeScale = 1;
@@ -35,7 +45,10 @@ public class PauseMenuRoom2 : MonoBehaviour
 		showClues = false;
 	}
 
-	public void Pause ()
+    /// <summary>
+    /// Metoda, która przerywa grę i wyświetla menu pauzy.
+    /// </summary>
+    public void Pause ()
 	{
 		pauseMenu.SetActive (true);
 		Time.timeScale = 0;
@@ -43,26 +56,38 @@ public class PauseMenuRoom2 : MonoBehaviour
 		showClues = false;
 	}
 
-	public void LoadMainMenu ()
+    /// <summary>
+    /// Metoda, która ładuje główne menu gry.
+    /// </summary>
+    public void LoadMainMenu ()
 	{
 		Time.timeScale = 1;
 		showClues = false;
 		SceneManager.LoadScene (0); //load main menu scene
 	}
 
-	public void ShowClues ()
+    /// <summary>
+    /// Metoda, która pozwala uruchomić pokazanie podpowiedzi.
+    /// </summary>
+    public void ShowClues ()
 	{
 		audio.Play ();
 		showClues = true;
 	}
 
-	public void Back ()
+    /// <summary>
+    /// Metoda, która uniemożliwia uruchomić pokazanie podpowiedzi.
+    /// </summary>
+    public void Back ()
 	{
 		audio.Stop ();
 		showClues = false;
 	}
 
-	void OnGUI ()
+    /// <summary>
+    /// Metoda wyświetlająca treść na ekranie. Informuje ona o poprawnym odegraniu muzyki.
+    /// </summary>
+    void OnGUI ()
 	{
 		float screenWidth = Screen.width / 2;
 		float screenHeight = Screen.height / 2;

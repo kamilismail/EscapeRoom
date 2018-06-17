@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Klasa odpowiedzialna za kontrolę pojedynczych płytek w pokoju trzecim.
+/// </summary>
 public class TileController : MonoBehaviour {
 
     public PlayerControllerR3 player;
@@ -13,28 +16,44 @@ public class TileController : MonoBehaviour {
     public bool triggered;
     private bool cheat = false;
 
-    // Use this for initialization
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
     void Start () { 
         player = this.GetComponentInParent<PathController>().playerController;
         path = this.GetComponentInParent<PathController>().path;
         player.screenWidth = Screen.width / 2;
         player.screenHeight = Screen.height / 2;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    /// <summary>
+    /// Metoda odświeżająca się co klatkę - główny obieg.
+    /// </summary>
+    void Update () {
 		
 	}
 
+    /// <summary>
+    /// Metoda wykrywająca wejście gracza w collider.
+    /// </summary>
+    /// <param name="other">Collider gracza.</param>
     private void OnTriggerEnter(Collider other)
     {
         triggered = true;
     }
+
+    /// <summary>
+    /// Metoda wykrywająca wyjście gracza w collider.
+    /// </summary>
+    /// <param name="other">Collider gracza.</param>
     private void OnTriggerExit(Collider other)
     {
         triggered = false;
     }
 
+    /// <summary>
+    /// Metoda wyświetlająca informacje na ekranie oraz sprawdzająca warunki gry oraz czy gracz poprawnie przeszedł przez scieżkę.
+    /// </summary>
     void OnGUI()
     {
         if (triggered)

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Klasa obsługująca menu pauzy w pokoju trzecim.
+/// </summary>
 public class PauseMenuRoom3 : MonoBehaviour
 {
 
@@ -11,11 +14,16 @@ public class PauseMenuRoom3 : MonoBehaviour
     public GameObject pauseMenu;
     public PathController pathCtrl;
 
-
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
     void Start()
     {
     }
 
+    /// <summary>
+    /// Metoda odświeżająca się co klatkę - główny obieg.
+    /// </summary>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !GamePaused)
@@ -31,6 +39,9 @@ public class PauseMenuRoom3 : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Metoda, która wznawia grę i chowa menu pauzy.
+    /// </summary>
     public void Resume()
     {
         pauseMenu.SetActive(false);
@@ -39,6 +50,9 @@ public class PauseMenuRoom3 : MonoBehaviour
         showClues = false;
     }
 
+    /// <summary>
+    /// Metoda, która przerywa grę i wyświetla menu pauzy.
+    /// </summary>
     public void Pause()
     {
         pauseMenu.SetActive(true);
@@ -47,6 +61,9 @@ public class PauseMenuRoom3 : MonoBehaviour
         showClues = false;
     }
 
+    /// <summary>
+    /// Metoda, która ładuje główne menu gry.
+    /// </summary>
     public void LoadMainMenu()
     {
         Time.timeScale = 1;
@@ -54,16 +71,17 @@ public class PauseMenuRoom3 : MonoBehaviour
         SceneManager.LoadScene(0); //load main menu scene
     }
 
+    /// <summary>
+    /// Metoda, która pozwala uruchomić pokazanie podpowiedzi.
+    /// </summary>
     public void ShowClues()
     {
         showClues = true;
     }
 
-    public void Back()
-    {
-        showClues = false;
-    }
-
+    /// <summary>
+    /// Metoda która pozwala w tym przypadku odpalić coroutine, czyli wyświetlić podpowiedź dla gracza w pokoju trzecim - pokazać mu scieżkę.
+    /// </summary>
     void OnGUI()
     {
         float screenWidth = Screen.width / 2;

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Klasa odpowiedzialna za kontrolę gracza.
+/// </summary>
 public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
@@ -16,10 +19,14 @@ public class PlayerController : MonoBehaviour {
 	public bool keyColliderTriggered;
     public bool hasKey;
 
-	void Start () {
-	}
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
+    void Start () {}
 
-	// Update is called once per frame
+    /// <summary>
+    /// Metoda odświeżająca się co klatkę - główny obieg.
+    /// </summary>
 	void FixedUpdate () {
 		float ver = Input.GetAxis ("Vertical") * speed;
 		float hor = Input.GetAxis ("Horizontal") * speed;
@@ -30,7 +37,11 @@ public class PlayerController : MonoBehaviour {
 		transform.Translate (hor, 0, ver);
     }
 
-	void OnTriggerEnter(Collider other) {
+    /// <summary>
+    /// Metoda wykrywająca wejście innego obiektu w nasz collider.
+    /// </summary>
+    /// <param name="c">Collider obiektu, w który wszedł gracz.</param>
+    void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag ("Clue")) {
 			c = other;
 			colliderTriggered = true;
@@ -41,7 +52,11 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerExit(Collider other) {
+    /// <summary>
+    /// Metoda wykrywająca wyjście innego obiektu w nasz collider.
+    /// </summary>
+    /// <param name="c">Collider obiektu, w który wszedł gracz.</param>
+    void OnTriggerExit(Collider other) {
 		if (other.gameObject.CompareTag ("Clue"))
 			colliderTriggered = false;
 		
@@ -51,7 +66,10 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-	void OnGUI()
+    /// <summary>
+    /// Metoda obsługująca wyświetlanie treści na ekranie. Wyświetla na ekranie komunikat "Got the key" po zebraniu klucza przez gracza.
+    /// </summary>
+    void OnGUI()
 	{
 		if (hasKey)
 		{

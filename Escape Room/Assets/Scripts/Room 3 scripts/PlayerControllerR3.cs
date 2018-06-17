@@ -1,6 +1,7 @@
 ﻿using Boo.Lang;
 using UnityEngine;
 
+//Klasa odpowiedzialna za kontrolę gracza w pokoju trzecim.
 public class PlayerControllerR3 : MonoBehaviour {
 
 	// Use this for initialization
@@ -15,11 +16,16 @@ public class PlayerControllerR3 : MonoBehaviour {
 	public bool bookColliderTriggered;
     public bool congrats;
 
-	void Start () {
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
+    void Start () {
 	}
 
-	// Update is called once per frame
-	void FixedUpdate () {
+    /// <summary>
+    /// Metoda odświeżająca się co klatkę - główny obieg.
+    /// </summary>
+    void FixedUpdate () {
 		float ver = Input.GetAxis ("Vertical") * speed;
 		float hor = Input.GetAxis ("Horizontal") * speed;
 
@@ -29,7 +35,11 @@ public class PlayerControllerR3 : MonoBehaviour {
 		transform.Translate (hor, 0, ver);
     }
 
-	void OnTriggerEnter(Collider other) {
+    /// <summary>
+    /// Metoda wykrywająca wejście innego obiektu w nasz collider.
+    /// </summary>
+    /// <param name="c">Collider obiektu, w który wszedł gracz.</param>
+    void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag ("Book")) {
             bookCollider = other;
             bookColliderTriggered = true;
@@ -40,6 +50,10 @@ public class PlayerControllerR3 : MonoBehaviour {
 		}
 	}
 
+    /// <summary>
+    /// Metoda wykrywająca wejście innego obiektu w nasz collider.
+    /// </summary>
+    /// <param name="c">Collider obiektu, w który wszedł gracz.</param>
 	void OnTriggerExit(Collider other) {
 		if (other.gameObject.CompareTag ("Tile"))
 			tileColliderTriggered = false;
@@ -50,6 +64,9 @@ public class PlayerControllerR3 : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Metoda obsługująca wyświetlanie treści na ekranie. Wyświetla na ekranie komunikat "Door open!" po poprawnym przejściu przez ścieżkę.
+    /// </summary>
 	void OnGUI()
 	{
 		if (congrats)

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Klasa odpowiedzialna za odgrywanie muzyki.
+/// </summary>
 public class PlayMusic : MonoBehaviour {
 
 	public bool colliderTriggered;
@@ -10,31 +13,51 @@ public class PlayMusic : MonoBehaviour {
 	public float screenHeight;
 	public AudioSource audio;
 
+    /// <summary>
+    /// Metoda wykrywająca kliknięcie collidera.
+    /// </summary>
+    /// <param name="c">Collider obiektu, który wszedł w collider naszego obiektu.</param>
 	void OnTriggerEnter(Collider c) {
 		colliderTriggered = true;
 	}
 
+    /// <summary>
+    /// Metoda wykrywająca odkniknięcie collidera.
+    /// </summary>
+    /// <param name="c">Collider obiektu, który wszedł w collider naszego obiektu.</param>
 	void OnTriggerExit(Collider c) {
 		colliderTriggered = false;
 		StopSong ();
 	}
 
-	void Start() {
-	}
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
+	void Start() {}
 
-	// Update is called once per frame
-	void Update () {
-	}
+	/// <summary>
+    /// Metoda odświeżająca.
+    /// </summary>
+	void Update () {}
 
+    /// <summary>
+    /// Metoda puszczająca muzykę.
+    /// </summary>
 	void StartSong() {
 		audio.Play ();
 	}
 
+    /// <summary>
+    /// Metoda zatrzymująca muzykę.
+    /// </summary>
 	void StopSong() {
 		audio.Stop ();
 	}
 
-	void OnGUI() {
+    /// <summary>
+    /// Metoda wyświetlająca treść na ekranie. Wyświetla ona na ekranie prosty komunikat "Press 'F' to play song".
+    /// </summary>
+    void OnGUI() {
 
 		screenWidth = Screen.width / 2;
 		screenHeight = Screen.height / 2;

@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Klasa odpowiedzialna za obsługe szuflady w biurku.
+/// </summary>
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Animation))]
 public class DrawerController : MonoBehaviour {
 
+    /// <summary>
+    /// Tym wyliczeniowy opisujący stan szuflady (otwarta, zamknięta).
+    /// </summary>
     public enum eInteractiveState
     {
         Active,     //Open
@@ -17,6 +23,9 @@ public class DrawerController : MonoBehaviour {
     public Animation anim;
     public PlayerController player;
 
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
     void Start()
     {
         m_State = eInteractiveState.Inactive;
@@ -29,6 +38,9 @@ public class DrawerController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Metoda obsługująca działanie z triggerem. Odpowiada ona za uruchamianie animacji otwarcia/zamknięcia szuflady.
+    /// </summary>
     public void TriggerInteraction()
     {
         

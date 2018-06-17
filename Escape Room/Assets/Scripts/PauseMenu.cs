@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Klasa obsługująca menu pauzy w pokoju pierwszym.
+/// </summary>
 public class PauseMenu : MonoBehaviour
 {
 
@@ -13,12 +16,18 @@ public class PauseMenu : MonoBehaviour
 	private Renderer rend;
 	int i;
 
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
 	void Start ()
 	{
 		list = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ().clues;
 	}
 
-	void Update ()
+    /// <summary>
+    /// Metoda odświeżająca się co klatkę - główny obieg.
+    /// </summary>
+    void Update ()
 	{
 		if (Input.GetKeyDown (KeyCode.Escape) && !GamePaused) {
 			if (GamePaused) {
@@ -29,6 +38,9 @@ public class PauseMenu : MonoBehaviour
 		}
 	}
 
+    /// <summary>
+    /// Metoda, która wznawia grę i chowa menu pauzy.
+    /// </summary>
 	public void Resume ()
 	{
 		pauseMenu.SetActive (false);
@@ -37,6 +49,9 @@ public class PauseMenu : MonoBehaviour
 		showClues = false;
 	}
 
+    /// <summary>
+    /// Metoda, która przerywa grę i wyświetla menu pauzy.
+    /// </summary>
 	public void Pause ()
 	{
 		pauseMenu.SetActive (true);
@@ -45,6 +60,9 @@ public class PauseMenu : MonoBehaviour
 		showClues = false;
 	}
 
+    /// <summary>
+    /// Metoda, która ładuje główne menu gry.
+    /// </summary>
 	public void LoadMainMenu ()
 	{
 		Time.timeScale = 1;
@@ -52,16 +70,25 @@ public class PauseMenu : MonoBehaviour
 		SceneManager.LoadScene (0); //load main menu scene
 	}
 
+    /// <summary>
+    /// Metoda, która pozwala uruchomić pokazanie podpowiedzi.
+    /// </summary>
 	public void ShowClues ()
 	{
 		showClues = true;
 	}
 
+    /// <summary>
+    /// Metoda, która uniemożliwia uruchomić pokazanie podpowiedzi.
+    /// </summary>
 	public void Back ()
 	{
 		showClues = false;
 	}
 
+    /// <summary>
+    /// Metoda wyświetlająca treść na ekranie. Wyświetla ona wskazówki, które zebrał gracz.
+    /// </summary>
 	void OnGUI ()
 	{
 		float screenWidth = Screen.width / 2;

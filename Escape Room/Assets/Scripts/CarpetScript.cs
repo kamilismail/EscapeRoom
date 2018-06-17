@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Klasa odpowiedzialna za ruch dywanu
+/// </summary>
 public class CarpetScript : MonoBehaviour {
 
 
@@ -18,22 +22,34 @@ public class CarpetScript : MonoBehaviour {
     private Renderer render;
     public Transform other;
 
-
+    /// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
     void Start()
     {
         render = gameObject.GetComponent<Renderer>();
     }
 
+    /// <summary>
+    /// Metoda wykrywająca wejście innego obiektu w nasz collider.
+    /// </summary>
+    /// <param name="c">Collider obiektu, który wszedł w collider naszego obiektu.</param>
     void OnTriggerEnter(Collider c) {
 		colliderTriggered = true;
 	}
 
+    /// <summary>
+    /// Metoda wykrywająca wyjście innego obiektu w nasz collider.
+    /// </summary>
+    /// <param name="c">Collider obiektu, który wszedł w collider naszego obiektu.</param>
 	void OnTriggerExit(Collider c) {
 		colliderTriggered = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {   
+
+    /// <summary>
+    /// Metoda odświeżająca się co klatkę - główny obieg.
+    /// </summary>
+    void Update () {   
 
         if (carpetMoved && !moveDone) {
 			float step = speed * Time.deltaTime;
@@ -45,6 +61,9 @@ public class CarpetScript : MonoBehaviour {
 		}
 	}
 
+    /// <summary>
+    /// Metoda obsługująca wyświetlanie treści na ekranie. Wyświetla na ekranie komunikat "Press 'F' to move the carpet" po podejściu gracza do zagadki.
+    /// </summary>
 	void OnGUI() {
 		screenWidth = Screen.width / 2;
 		screenHeight = Screen.height / 2;

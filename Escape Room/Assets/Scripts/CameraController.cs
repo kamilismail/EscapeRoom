@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Klasa odpowiedzialna za obsługe kamery gracza.
+/// </summary>
 public class CameraController : MonoBehaviour {
 
 	// Use this for initialization
-	public float sensitivity = 5;
+    public float sensitivity = 5;
 	public float smooth = 2;
 	public float min = -45f;
 	public float max = 50f;
@@ -15,12 +18,19 @@ public class CameraController : MonoBehaviour {
 	Vector2 smoothVector;
 	GameObject player;
 
-	void Start () {
+
+	/// <summary>
+    /// Metoda inicjalizująca.
+    /// </summary>
+    void Start () {
 		player = this.transform.parent.gameObject;
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+	/// <summary>
+    /// Metoda odświeżająca się co klatkę - główny obieg.
+    /// </summary>
+    void FixedUpdate () {
 
 		mousePos = new Vector3(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 		mousePos = Vector2.Scale(mousePos, new Vector2(sensitivity * smooth, sensitivity * smooth));
